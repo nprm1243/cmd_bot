@@ -14,19 +14,19 @@ class GayPercent(commands.Cog):
 
     @commands.command(aliases=['gay%'])
     async def howgay(self, ctx: commands.Context, *members: discord.Member):
-        lines = []
+        description = []
 
         for member in members:
             percent = randomPercent(member)
-            lines.append(f'**{member.display_name}** có {percent}% tỉ lệ gay')
+            description.append(f'**{member.display_name}** có {percent}% tỉ lệ gay')
 
         embed = discord.Embed(
             title="🏳️‍🌈 Bạn có thẳng như mình nghĩ?",
-            description='\n'.join(lines),
+            description='\n'.join(description),
             color=discord.Color.orange(),
         )
 
-        if len(lines) == 0:
+        if len(description) == 0:
             percent = randomPercent(ctx.author)
             flag = '🏳️‍🌈' if percent > 25 else '🏳️'
             await ctx.send(f'{flag} Bạn có {percent}% tỉ lệ gay')
