@@ -3,4 +3,6 @@ discord.py==1.7.3
 lxml==4.6.3
 beautifulsoup4==4.10.0
 discord==1.7.3
+googletrans==3.0.0
+nest_asyncio==1.5.1
 python-dotenv==0.19.0
