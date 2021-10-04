@@ -13,7 +13,7 @@ class PiNumber(commands.Cog):
         print("Pi command is ready")
 
     @commands.command()
-    async def pi(self, ctx, *, n_digits: int):
+    async def pi(self, ctx, *, n_digits: int = 300):
         if n_digits < 1:
             await ctx.send("Số chữ số của `π` phải lớn hơn `0`")
             return
