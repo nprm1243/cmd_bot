@@ -28,16 +28,6 @@ class Get_books(commands.Cog):
         channel = self.client.get_channel(int(WELCOME_CHANNEL_ID))
         await channel.send("Wait for a moment!")
 
-    # Định nghĩa lệnh "sample_cmd"
-    @commands.command()
-    async def sample_cmd(self, ctx, *, text: str):
-        pass
-
-    # Định nghĩa lệnh "sample_cmd2"
-    @commands.command()
-    async def sample_cmd2(self, ctx, code: int = None, *, text: str = None):
-        pass
-
     @commands.command()
     async def get_books(self,ctx,*,message:str=None):
         if message == None:
