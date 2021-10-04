@@ -1,5 +1,6 @@
 # Dự án phát triển Bot cho Server Toán - Tin trên Discord
-CMDBot là một dự án mã nguồn mở phát triển Bot cho [Server Toán - Tin](https://discord.gg/bfhvzcJd) trên nền tảng Discord, mục tiêu của dự án là để tạo một môi trường giúp các bạn sinh viên trên server có thể ứng dụng ngay kiến thức lập trình ở trên trường của mình vào một dự án thực tế để đỡ nhàm chán hơn trong việc học, cũng như sẽ giúp và cung cấp cho các bạn một tư duy về phát triển phần mềm từ sớm.s
+CMDBot là một dự án mã nguồn mở phát triển Bot cho [Server Toán - Tin](https://discord.gg/bfhvzcJd) trên nền tảng Discord, mục tiêu của dự án là để tạo một môi trường giúp các bạn sinh viên trên server có thể ứng dụng ngay kiến thức lập trình ở trên trường của mình vào một dự án thực tế để đỡ nhàm chán hơn trong việc học, cũng như sẽ giúp và cung cấp cho các bạn một tư duy về phát triển phần mềm từ sớm.
+
 `(CMDBot = Computer Science + Math + Data Science Bot)`
 
 ## Yêu cầu
