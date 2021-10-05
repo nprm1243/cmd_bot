@@ -29,6 +29,9 @@ async def on_member_remove(member: discord.Member):
 
 @bot.event
 async def on_message(message: discord.Message):
+    # Ignore self message
+    if message.author == bot.user:
+        return
     # Make sure on_message event not intercept command handlers
     if message.content.startswith(COMMAND_PREFIX):
         await bot.process_commands(message)
