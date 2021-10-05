@@ -12,11 +12,11 @@ class GayPercent(commands.Cog):
     async def on_ready(self):
         print("Gay command is ready")
 
-    @commands.command(aliases=['gay%'])
-    async def howgay(self, ctx: commands.Context, *members: discord.Member):
+    @commands.command(aliases=['gay%'], help='Đo độ cong của người dùng')
+    async def howgay(self, ctx: commands.Context, *mentions: discord.Member):
         description = []
 
-        for member in members:
+        for member in mentions:
             percent = randomPercent(member)
             description.append(f'**{member.display_name}** có {percent}% tỉ lệ gay')
 
