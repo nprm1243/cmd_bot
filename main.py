@@ -12,6 +12,8 @@ ADMIN_ROLE = os.getenv('ADMIN_ROLE')
 intents = discord.Intents.default().all()
 bot = commands.Bot(command_prefix=COMMAND_PREFIX, intents=intents)
 
+EXCLUDE_COGS = ['sample']
+
 # ======= Events =======
 @bot.event
 async def on_ready():
@@ -53,7 +55,8 @@ for dir_name in os.listdir('./cogs'):
     
     path = os.path.join('./cogs', dir_name)
     if os.path.isdir(path) and '__init__.py' in os.listdir(path):
-        bot.load_extension(f'cogs.{dir_name}')
+        if dir_name not in EXCLUDE_COGS:
+            bot.load_extension(f'cogs.{dir_name}')
 
 # ======= Run =======
 bot.run(DISCORD_TOKEN)

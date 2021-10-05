@@ -9,15 +9,16 @@ class Echo(commands.Cog):
     def __init__(self, client: discord.Client):
         self.client = client
 
-    @commands.command()
-    async def echo(self, ctx, member: discord.Member):
+    @commands.Cog.listener()
+    async def on_ready(self):
+        print("Echo command is ready")
 
-        welcome_channel = self.client.get_channel(int(WELCOME_CHANNEL_ID))
-        await welcome_channel.send('hello')
-
-        await ctx.send(member.name)
-        await ctx.send(member.display_name)
+    @commands.command(help="Nhại lại tin nhắn của người dùng")
+    async def echo(self, ctx, *, message = ""):
+        if message == "":
+            await ctx.send('Phải nhắn gì thì mới nhại lại được chứ :expressionless:')
+        else:
+            await ctx.send(message)
         
-
 def setup(client):
     client.add_cog(Echo(client))
