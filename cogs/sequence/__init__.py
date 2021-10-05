@@ -19,7 +19,7 @@ class Sequence(commands.Cog):
                 numbers[i] = int(numbers[i])
 
         except ValueError:
-            await ctx.send('Dãy số chỉ được chứa số nguyên')
+            await ctx.send('Dãy số chỉ được chứa số nguyên thôi :rolling_eyes:')
             return
 
         data = fetch_oeis(numbers)

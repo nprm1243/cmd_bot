@@ -15,10 +15,10 @@ class PiNumber(commands.Cog):
     @commands.command(help='Lấy n chữ số pi')
     async def pi(self, ctx, *, n_digits: int = 300):
         if n_digits < 1:
-            await ctx.send("Số chữ số của `π` phải lớn hơn `0`")
+            await ctx.send("Số chữ số của `π` phải lớn hơn `0` :rolling_eyes:")
             return
         elif n_digits > 4000:
-            await ctx.send("Không thể hiện thị quá `4000` chữ số `π`")
+            await ctx.send("Không thể hiện thị quá `4000` chữ số `π` đâu :slight_frown:")
             return
         n_digits -= 1
         
