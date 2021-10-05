@@ -20,6 +20,7 @@ class Sequence(commands.Cog):
 
         except ValueError:
             await ctx.send('Dãy số chỉ được chứa số nguyên')
+            return
 
         data = fetch_oeis(numbers)
 
