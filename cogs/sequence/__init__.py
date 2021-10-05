@@ -23,6 +23,8 @@ class Sequence(commands.Cog):
             return
 
         data = fetch_oeis(numbers)
+        if data == None:
+            await ctx.send('Không thể tìm thấy dãy số trùng khớp nào :cry:')
 
         description = ''
         for ind, seq in enumerate(data[:5]):
