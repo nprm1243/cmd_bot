@@ -8,7 +8,7 @@ nest_asyncio.apply()
 
 #set up parse
 from bs4 import BeautifulSoup
-import urllib.request # tải ảnh về folder
+import urllib.request
 
 #set up translate
 import googletrans
@@ -22,21 +22,14 @@ class Get_books(commands.Cog):
     def __init__(self, client: discord.Client):
         self.client = client
 
-    # Khi lệnh được tạo ra thì sẽ chạy hàm này đầu tiên
-    @commands.command()
-    async def on_ready(self):
-        channel = self.client.get_channel(int(WELCOME_CHANNEL_ID))
-        await channel.send("Wait for a moment!")
-
-    @commands.command()
+    @commands.command(help="+ sách muốn lấy ")
     async def get_books(self,ctx,*,message:str=None):
         if message == None:
             await ctx.send("Missing Book - key words")
         else:
             x = trans(message)
             if (message != self.client.user):
-                await ctx.send(f"Ttrue , access request get '{x}'")
-                await ctx.channel.send("Wait me few seconds")
+                await ctx.send(f"Ttrue , access request get '{x}' \n Wait me few seconds")
                 n, book = get_url(link_to(x))
                 if n >= 6:
                     for i in range(0, 5):
@@ -46,13 +39,6 @@ class Get_books(commands.Cog):
                         await ctx.send(book[i])
                 elif n == 0:
                     await ctx.send("Not found!")
-
-    @commands.command()
-    async def translate(self,ctx,req:str = "en",*,message:str=None):
-        if message == None:
-            await ctx.send("Missing Text translate!")
-        else:
-            await ctx.send(f"{trans(message,language_req=req)}")
 
 def setup(client):
     client.add_cog(Get_books(client))
