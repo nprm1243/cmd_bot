@@ -40,6 +40,11 @@ async def on_message(message: discord.Message):
     # Handle on_message normally here
     pass
 
+@bot.event
+async def on_command_error(ctx, error):
+    if isinstance(error, commands.CommandNotFound):
+        await ctx.send('Lệnh này khum tồn tại nha :woman_facepalming:')
+
 # @commands.has_permissions(administrator=True, manage_messages=True)
 @bot.command()
 @commands.has_role(ADMIN_ROLE)
