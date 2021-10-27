@@ -22,11 +22,9 @@ class MatchPercent(commands.Cog):
         if (len(mentions) == 2):
             firstPercent = randomPercent(mentions[0]) * randomPercent(mentions[1])
             randomSeed = firstPercent * 10 + 1
-            print(randomSeed)
             random.seed(randomSeed)
             
             result = 1
-            print("pass")
             # Pytago
 
             a = random.random() % 100
@@ -50,7 +48,6 @@ class MatchPercent(commands.Cog):
 
             percent = 0
 
-            print(f'{firstPercent} {secondPercent} {thirdPercent}')
 
             if firstPercent + secondPercent > thirdPercent and secondPercent + thirdPercent > firstPercent and firstPercent + thirdPercent > secondPercent:
                 # Heron
@@ -59,22 +56,21 @@ class MatchPercent(commands.Cog):
                 percent = math.sqrt(p * (p - firstPercent) * (p - secondPercent) * (p - thirdPercent))
 
             step = 5
-            while (percent < 0.009 and step > 0):
+            while (percent < 0.01 and step > 0):
                 percent = percent * 10
                 step -= 1
-                print(percent)
-            print(percent)
+
+            percent = min(1, percent*10)
 
             embed = discord.Embed(
                 title="Đôi bạn có hợp nhau không ?",
-                description=f'{str(percent*100)} %' +('♥' if percent >= 0.5 else '😁'),
+                description=f'{str(round(percent*100, 0))} %' +('♥' if percent >= 0.5 else '😁'),
                 color=discord.Color.orange(),
             )
 
             await  ctx.send(embed = embed)
         else:
 
-            print('no')
             embed = discord.Embed(
                 title="Đôi bạn có hợp nhau không ?",
                 description='wrong input',
